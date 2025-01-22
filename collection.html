@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collection</title>
+    <link rel="stylesheet" href="ujji.css">
+    <a href="website.html">Return to Home</a>
+    <style>
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 4;
+            left: 37;
+            top: 0;
+            width: 100%; 
+            height: 200%; 
+            overflow: auto; 
+            background-color: rgba(255, 192, 203, 0.2); 
+        }
+        .modal-content {
+            margin: 5% auto;
+            display: block;
+            width: 70%; 
+            max-width: 800px;
+        }
+        .caption {
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Our Collection</h1>
+        <p>Explore our stunning collection of aesthetic, gorgeous dresses, designed with elegance and charm.</p>
+        <div class="collection">
+            <div class="item">
+                <img src="10.jpg" alt="Elegant Mermaid" class="modal-img">
+                <h3>Elegant Mermaid</h3>
+            </div>
+            <div class="item">
+                <img src="2.jpg" alt="Classy Satin" class="modal-img">
+                <h3>Classy Satin</h3>
+            </div>
+            <div class="item">
+                <img src="3.jpg" alt="Vintage Lace" class="modal-img">
+                <h3>Vintage Lace</h3>
+            </div>
+            <div class="item">
+                <img src="4.jpg" alt="Modern Chic" class="modal-img">
+                <h3>Modern Chic</h3>
+            </div>
+            <div class="item">
+                <img src="5.jpg" alt="Boho Breeze" class="modal-img">
+                <h3>Boho Breeze</h3>
+            </div>
+            <div class="item">
+                <img src="6.jpg" alt="Royal Beauty" class="modal-img">
+                <h3>Royal Beauty</h3>
+            </div>
+            <div class="item">
+                <img src="7.jpg" alt="Bold & Beautiful" class="modal-img">
+                <h3>Bold & Beautiful</h3>
+            </div>
+            <div class="item">
+                <img src="8.jpg" alt="Glamour Diva" class="modal-img">
+                <h3>Glamour Diva</h3>
+            </div>
+            <div class="item">
+                <img src="9.jpg" alt="Princess" class="modal-img">
+                <h3>Ballgown</h3>
+            </div>
+            <div class="item">
+                <img src="1.jpg" alt="ball gown" class="modal-img">
+                <h3>Dark Princess</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption" class="caption"></div>
+    </div>
+
+    <script>
+        // Get all images with the class 'modal-img'
+        var modalImages = document.querySelectorAll('.modal-img');
+        var modal = document.getElementById('myModal');
+        var modalImg = document.getElementById('img01');
+        var captionText = document.getElementById('caption');
+
+        modalImages.forEach(function(image) {
+            image.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+        });
+
+        // Close the modal when the user clicks on <span> (x)
+        var closeModal = document.querySelector('.close');
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close modal if clicked anywhere outside the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
